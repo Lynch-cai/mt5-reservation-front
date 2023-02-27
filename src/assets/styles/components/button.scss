@@ -1,10 +1,17 @@
 .button {
-  background: #0069ff;
-  border: 1px solid #0069ff;
+  background: $primary-blue;
+  border: 1px solid $primary-blue;
   border-radius: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.875rem 0;
   color: white;
+  width: 100%;
+  font-weight: 700;
+  cursor: pointer;
+  transition: ease all 0.2s;
+  &:hover {
+    background: rgba($primary-blue, 0.9);
+  }
 }

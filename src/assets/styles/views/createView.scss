@@ -1,0 +1,45 @@
+.create-container {
+  margin-top: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .window {
+    max-width: 450px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .create-interval-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .create-days-container {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    .create-day-label,
+    .create-checkbox-container {
+      width: 5rem;
+      display: flex;
+      align-items: center;
+    }
+    .create-checkbox-container {
+      justify-content: end;
+    }
+    .create-times-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      .create-time-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        .select {
+          width: 5.625rem;
+        }
+      }
+    }
+  }
+}

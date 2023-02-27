@@ -1,0 +1,37 @@
+.reservations-container {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .window {
+    max-width: 450px;
+    width: 100%;
+    box-sizing: border-box;
+    .reservations-remove-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: $white;
+      width: fit-content;
+      padding: 0.25rem;
+      cursor: pointer;
+      transition: 0.2s ease all;
+      &:hover {
+        color: $primary-blue;
+      }
+    }
+    h4 {
+      span {
+        font-weight: 400;
+      }
+    }
+    .reservations-information-row {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+}
