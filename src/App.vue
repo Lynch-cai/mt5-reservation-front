@@ -5,7 +5,10 @@
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/join">join</RouterLink>
+        <RouterLink to="/create">create</RouterLink>
+        <RouterLink to="/reservations">Réservation</RouterLink>
+        <RouterLink to="/finish">finish</RouterLink>
       </nav>
     </div>
   </header>

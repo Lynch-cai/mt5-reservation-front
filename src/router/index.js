@@ -14,9 +14,19 @@ const router = createRouter({
       component: () => import('../views/CreateView.vue')
     },
     {
-      path: '/reservation',
-      name: 'reservation',
-      component: () => import('../views/ReservationView.vue')
+      path: '/join',
+      name: 'join',
+      component: () => import('../views/JoinView.vue')
+    },
+    {
+      path: '/finish',
+      name: 'finish',
+      component: () => import('../views/FinishView.vue')
+    },
+    {
+      path: '/reservations',
+      name: 'reservations',
+      component: () => import('../views/ReservationsView.vue')
     }
   ]
 })
