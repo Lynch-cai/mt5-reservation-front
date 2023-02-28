@@ -11,7 +11,7 @@ export async function getAvailability() {
 
 export async function addAvailability(savedTimes) {
   try {
-    const response = await axios.post(import.meta.env.VITE_API_URL + '/addAvailability', savedTimes)
+    const response = await axios.post(import.meta.env.VITE_API_URL + '/add_availability', savedTimes)
     return response
   } catch (error) {
     return error

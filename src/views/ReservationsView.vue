@@ -5,13 +5,13 @@
       <div class="reservations-boxes">
         <div class="box reservations-box" v-for="reservation in reservations">
           <h4>
-            Jean Paul - <span>{{ reservation.ReservationDate }} | {{ reservation.StartTime }} à {{ reservation.EndTime }}</span>
+            Jean Paul - <span>{{ reservation.reservation_date }} | {{ reservation.start_time }} à {{ reservation.end_time }}</span>
           </h4>
           <div class="reservations-information-row">
             <label class="label" for="">E-mail</label>
             <span>jeanpaul@gmail.com</span>
           </div>
-          <div class="reservations-remove-container" tabindex="0" @click.prevent="removeReservation(reservation.ID)">
+          <div class="reservations-remove-container" tabindex="0" @click.prevent="removeReservation(reservation.id)">
             <font-awesome-icon icon="fa-solid fa-xmark" /> Annuler
           </div>
         </div>
@@ -33,7 +33,7 @@ export default {
     this.reservations = await getReservations()
     console.log(this.reservations)
     this.reservations.forEach((reservation) => {
-      reservation.ReservationDate = this.formatDate(reservation.ReservationDate)
+      reservation.reservation_date = this.formatDate(reservation.reservation_date)
     })
   },
   methods: {
