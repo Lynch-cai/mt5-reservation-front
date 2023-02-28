@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export async function getAvailability() {
   try {
-    const response = await axios.post(import.meta.env.VITE_API_URL + '/get_availability')
+    const response = await axios.get(import.meta.env.VITE_API_URL + '/get_availability')
     return response
   } catch (error) {
     return error
