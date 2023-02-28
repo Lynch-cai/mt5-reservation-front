@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { addAvailability } from '../modules/axios'
+import { addAvailability, getAvailability } from '../modules/axios'
 
 export default {
   data() {
@@ -95,6 +95,9 @@ export default {
       ],
       savedTimes: []
     }
+  },
+  mounted() {
+    const availability = getAvailability()
   },
   methods: {
     getTimeWithInterval(day, starttime, endtime) {

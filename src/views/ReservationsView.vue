@@ -2,14 +2,18 @@
   <div class="reservations-container">
     <div class="window">
       <h3>Les réservations</h3>
-      <div class="box reservations-box">
-        <h4>Jean Paul - <span>27 février 2023 | 9:00 à 9:30</span></h4>
-        <div class="reservations-information-row">
-          <label class="label" for="">E-mail</label>
-          <span>jeanpaul@gmail.com</span>
-        </div>
-        <div class="reservations-remove-container" tabindex="0" @click.prevent="deleteReservation()">
-          <font-awesome-icon icon="fa-solid fa-xmark" /> Annuler
+      <div class="reservations-boxes">
+        <div class="box reservations-box" v-for="reservation in reservations">
+          <h4>
+            Jean Paul - <span>{{ reservation.ReservationDate }} | {{ reservation.StartTime }} à {{ reservation.EndTime }}</span>
+          </h4>
+          <div class="reservations-information-row">
+            <label class="label" for="">E-mail</label>
+            <span>jeanpaul@gmail.com</span>
+          </div>
+          <div class="reservations-remove-container" tabindex="0" @click.prevent="removeReservation(reservation.ID)">
+            <font-awesome-icon icon="fa-solid fa-xmark" /> Annuler
+          </div>
         </div>
       </div>
     </div>
@@ -17,15 +21,30 @@
 </template>
 
 <script>
-import { removeReservation } from '../modules/axios'
+import { getReservations, removeReservation } from '../modules/axios'
 
 export default {
   data() {
-    return {}
+    return {
+      reservations: []
+    }
+  },
+  async mounted() {
+    this.reservations = await getReservations()
+    console.log(this.reservations)
+    this.reservations.forEach((reservation) => {
+      reservation.ReservationDate = this.formatDate(reservation.ReservationDate)
+    })
   },
   methods: {
-    deleteReservation() {
+    removeReservation(id) {
       removeReservation(id)
+    },
+    formatDate(dateString) {
+      const date = new Date(dateString)
+      const options = { day: 'numeric', month: 'long', year: 'numeric' }
+      const formattedDate = date.toLocaleDateString('fr-FR', options)
+      return formattedDate
     }
   }
 }
