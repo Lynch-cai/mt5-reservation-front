@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-@import 'components/button';
-@import 'components/window';
-
-@import 'views/homeView';
-@import 'views/joinView';
-
-=======
 @import 'bases/colors';
 @import 'bases/fonts';
 @import 'bases/shadows';
@@ -19,6 +11,6 @@
 
 @import 'views/homeView';
 @import 'views/createView';
+@import 'views/joinView';
 @import 'views/reservationsView';
 @import 'views/finishView';
->>>>>>> 255b875 (:tada: add components & views)

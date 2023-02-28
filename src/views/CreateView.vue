@@ -1,6 +1,4 @@
 <template>
-<<<<<<< HEAD
-=======
   <div class="create-container">
     <div class="window">
       <h3>Indiquer vos horaires</h3>
@@ -48,7 +46,6 @@
       </div>
     </div>
   </div>
->>>>>>> 255b875 (:tada: add components & views)
 </template>
 
 <script>
