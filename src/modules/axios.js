@@ -54,10 +54,9 @@ export async function addReservation(data) {
   }
 }
 
-// TODO : FINIR
 export async function removeReservation(id) {
   try {
-    const response = await axios.post(import.meta.env.VITE_API_URL + '/remove_reservation', id)
+    const response = await axios.delete(import.meta.env.VITE_API_URL + '/delete_reservation', { params: { reservation_id: id } })
     return response
   } catch (error) {
     return error
