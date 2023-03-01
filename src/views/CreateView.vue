@@ -166,8 +166,10 @@ export default {
     const isEndSet = { monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false }
 
     // disable everyday
-    for (const day of this.days) {
-      day.disable = true
+    if (availabilities.length) {
+      for (const day of this.days) {
+        day.disable = true
+      }
     }
 
     for (let i = 0; i < availabilities.length; i++) {

@@ -41,7 +41,7 @@ export async function adminGetReservations(start_date, end_date) {
     const response = await axios.get(import.meta.env.VITE_API_URL + '/admin_get_reservations', { params: { start_date, end_date } })
     return response.data
   } catch (error) {
-    return error
+    return
   }
 }
 

@@ -37,8 +37,8 @@ export default {
         reservation.last_name = user.last_name
         reservation.first_name = user.first_name
       })
+      this.reservations = this.reservations.sort((a, b) => new Date(a.reservation_date) - new Date(b.reservation_date))
     }
-    this.reservations = this.reservations.sort((a, b) => new Date(a.reservation_date) - new Date(b.reservation_date))
   },
   methods: {
     async removeReservation(id) {
