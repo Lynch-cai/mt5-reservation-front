@@ -1,19 +1,19 @@
-@import 'bases/colors.scss';
-@import 'bases/fonts.scss';
-@import 'bases/shadows.scss';
+@import '@/assets/styles/bases/colors.scss';
+@import '@/assets/styles/bases/fonts.scss';
+@import '@/assets/styles/bases/shadows.scss';
 
-@import 'components/button.scss';
-@import 'components/label.scss';
-@import 'components/input.scss';
-@import 'components/select.scss';
-@import 'components/box.scss';
-@import 'components/window.scss';
+@import '@/assets/styles/components/button.scss';
+@import '@/assets/styles/components/label.scss';
+@import '@/assets/styles/components/input.scss';
+@import '@/assets/styles/components/select.scss';
+@import '@/assets/styles/components/box.scss';
+@import '@/assets/styles/components/window.scss';
 
-@import 'views/homeView.scss';
-@import 'views/createView.scss';
-@import 'views/joinView.scss';
-@import 'views/reservationsView.scss';
-@import 'views/finishView.scss';
+@import '@/assets/styles/views/homeView.scss';
+@import '@/assets/styles/views/createView.scss';
+@import '@/assets/styles/views/joinView.scss';
+@import '@/assets/styles/views/reservationsView.scss';
+@import '@/assets/styles/views/finishView.scss';
 
 nav {
   display: flex;
