@@ -9,7 +9,7 @@
             <div
               class="time-button"
               :class="{ active: payload.start_time === availability.start_time }"
-              v-if="availability.day === getDayFromDate(date) && checkIfTimeIsTaken(availability.start_time)"
+              v-if="availability.day === getDayFromDate(date) && checkIfTimeIsTaken(date, availability.start_time)"
               @click.prevent=";(payload.start_time = availability.start_time), (payload.end_time = availability.end_time)"
             >
               {{ availability.start_time.slice(0, 5) }}
@@ -100,14 +100,13 @@ export default {
     getDayFromDate(date) {
       return new Date(date).toLocaleString('en-us', { weekday: 'long' }).toLowerCase()
     },
-    checkIfTimeIsTaken(startTime) {
-      if (this.times && this.times.find((time) => time.start_time === startTime)) {
-        return false
-      }
-      return true
-    },
-    checkIfTimeIsNotTaken(startTime) {
-      if (this.times && this.times.find((time) => time.start_time !== startTime)) {
+    checkIfTimeIsTaken(date, startTime) {
+      if (
+        this.times.length > 0 &&
+        this.times.find((time) => {
+          return this.formatDate(date) === time.reservation_date && time.start_time === startTime
+        })
+      ) {
         return false
       }
       return true
@@ -134,27 +133,32 @@ export default {
       }
     },
     async getDisabledDate() {
-      const oneMonthLater = new Date().setMonth(new Date().getMonth() + 1)
-      this.times = await getReservations(this.formatDate(new Date()), this.formatDate(oneMonthLater))
+      let currentDate = new Date()
+      const endDate = new Date().setMonth(new Date().getMonth() + 1)
+      this.times = await getReservations(this.formatDate(currentDate), this.formatDate(endDate))
 
-      let countAppear = 0
-      let countTotal = 0
-      for (const availability of this.availabilities) {
-        if (availability.day == this.getDayFromDate(new Date())) {
-          countTotal++
-          if (!this.checkIfTimeIsTaken(availability.start_time)) {
-            countAppear++
+      while (currentDate <= endDate) {
+        let countAppear = 0
+        let countTotal = 0
+        for (const availability of this.availabilities) {
+          if (availability.day === this.getDayFromDate(currentDate)) {
+            countTotal++
+            if (!this.checkIfTimeIsTaken(currentDate, availability.start_time)) {
+              countAppear++
+            }
           }
         }
-      }
-      if (countTotal === countAppear) {
-        const year = new Date().getFullYear()
-        const month = new Date().getMonth()
-        const day = new Date().getDate()
-        this.disabledDates.push({
-          start: new Date(year, month, day),
-          end: new Date(year, month, day)
-        })
+
+        if (countTotal === countAppear) {
+          const year = currentDate.getFullYear()
+          const month = currentDate.getMonth()
+          const day = currentDate.getDate()
+          this.disabledDates.push({
+            start: new Date(year, month, day),
+            end: new Date(year, month, day)
+          })
+        }
+        currentDate.setDate(currentDate.getDate() + 1)
       }
     }
   },

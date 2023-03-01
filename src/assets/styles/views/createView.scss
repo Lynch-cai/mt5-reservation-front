@@ -42,4 +42,14 @@
       }
     }
   }
+  .create-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    div {
+      text-align: center;
+      color: $primary-blue;
+    }
+  }
 }
