@@ -12,8 +12,6 @@ import VCalendar from 'v-calendar'
 
 library.add(faXmark, faCircleCheck)
 
-import '@/assets/styles/all.scss'
-
 const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon)
 
 app.use(createPinia())
