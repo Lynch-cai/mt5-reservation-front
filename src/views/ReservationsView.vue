@@ -3,7 +3,7 @@
     <div class="window">
       <h3>Les réservations</h3>
       <div class="reservations-boxes">
-        <div class="box reservations-box" v-for="reservation in reservations" v-if="reservations">
+        <div class="box reservations-box" v-for="reservation in reservations" v-if="reservations.length > 0">
           <h4>
             {{ reservation.last_name }} {{ reservation.first_name }} -
             <span>{{ reservation.reservation_date }} | {{ reservation.start_time }} à {{ reservation.end_time }}</span>
