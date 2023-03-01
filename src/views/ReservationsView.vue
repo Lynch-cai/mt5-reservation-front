@@ -41,8 +41,13 @@ export default {
     this.reservations = this.reservations.sort((a, b) => new Date(a.reservation_date) - new Date(b.reservation_date))
   },
   methods: {
-    removeReservation(id) {
-      removeReservation(id)
+    async removeReservation(id) {
+      await removeReservation(id)
+
+      this.reservations.splice(
+        this.reservations.findIndex((reservation) => reservation.id === id),
+        1
+      )
     },
     formatDate(dateString) {
       const date = new Date(dateString)
