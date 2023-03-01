@@ -1,8 +1,22 @@
 .input {
-  max-height: 3rem;
   box-sizing: border-box;
-  background: $white;
-  border: 1px solid $primary-blue;
-  box-shadow: inset 0px 0px 0px 1px $primary-blue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.625rem 0.875rem;
+  gap: 0.5rem;
+  width: 100%;
+  height: 2.5rem;
+  background: #ffffff;
+  border: 0.0625rem solid $primary-blue;
+  box-shadow: inset 0rem 0rem 0rem 0.0625rem $primary-blue;
   border-radius: 0.5rem;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  color: $grey400;
+  &:disabled {
+    box-shadow: inset 0rem 0rem 0rem 0.0625rem $grey200;
+    border: 0.0625rem solid $grey200;
+  }
 }

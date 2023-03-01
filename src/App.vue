@@ -3,12 +3,12 @@
     <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
 
     <div class="wrapper">
-      <nav>
+      <nav class="nav">
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/join">join</RouterLink>
-        <RouterLink to="/create">create</RouterLink>
-        <RouterLink to="/reservations">Réservation</RouterLink>
-        <RouterLink to="/finish">finish</RouterLink>
+        <RouterLink to="/join">User/join</RouterLink>
+        <RouterLink to="/finish">User/finish</RouterLink>
+        <RouterLink to="/create">Admin/create</RouterLink>
+        <RouterLink to="/reservations">Admin/Réservation</RouterLink>
       </nav>
     </div>
   </header>

@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-export async function getAvailability() {
+export async function getAvailabilities() {
   try {
     const response = await axios.get(import.meta.env.VITE_API_URL + '/get_availability')
-    return response
+    return response.data
   } catch (error) {
-    return error
+    return
   }
 }
 
@@ -14,17 +14,25 @@ export async function addAvailability(savedTimes) {
     const response = await axios.post(import.meta.env.VITE_API_URL + '/add_availability', savedTimes)
     return response
   } catch (error) {
-    return error
+    return
   }
 }
 
-export async function getReservations() {
-  const currentDate = new Date().toISOString().slice(0, 10).toString()
+export async function getReservations(start_date, end_date) {
   try {
-    const response = await axios.get(import.meta.env.VITE_API_URL + '/get_reservations', { params: { start_date: currentDate, end_date: '2999-01-01' } })
+    const response = await axios.get(import.meta.env.VITE_API_URL + '/get_reservations', { params: { start_date, end_date } })
     return response.data
   } catch (error) {
-    return error
+    return
+  }
+}
+
+export async function addReservation(data) {
+  try {
+    const response = await axios.post(import.meta.env.VITE_API_URL + '/reservations', data)
+    return response
+  } catch (error) {
+    return
   }
 }
 
@@ -34,7 +42,7 @@ export async function removeReservation(id) {
     const response = await axios.post(import.meta.env.VITE_API_URL + '/removeReservation', id)
     return response
   } catch (error) {
-    return error
+    return
   }
 }
 

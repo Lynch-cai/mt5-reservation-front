@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { addAvailability, getAvailability } from '../modules/axios'
+import { addAvailability, getAvailabilities } from '../modules/axios'
 
 export default {
   data() {
@@ -61,8 +61,8 @@ export default {
         { text: 'wednesday', frenchiesText: 'Mercredi', disable: false, start_time1: '09:00', end_time1: '12:00', start_time2: '13:00', end_time2: '17:00' },
         { text: 'thursday', frenchiesText: 'Jeudi', disable: false, start_time1: '09:00', end_time1: '12:00', start_time2: '13:00', end_time2: '17:00' },
         { text: 'friday', frenchiesText: 'Vendredi', disable: false, start_time1: '09:00', end_time1: '12:00', start_time2: '13:00', end_time2: '17:00' },
-        { text: 'saturday', frenchiesText: 'Samedi', disable: false, start_time1: '09:00', end_time1: '12:00', start_time2: '13:00', end_time2: '17:00' },
-        { text: 'sunday', frenchiesText: 'Dimanche', disable: false, start_time1: '09:00', end_time1: '12:00', start_time2: '13:00', end_time2: '17:00' }
+        { text: 'saturday', frenchiesText: 'Samedi', disable: true, start_time1: '09:00', end_time1: '12:00', start_time2: '13:00', end_time2: '17:00' },
+        { text: 'sunday', frenchiesText: 'Dimanche', disable: true, start_time1: '09:00', end_time1: '12:00', start_time2: '13:00', end_time2: '17:00' }
       ],
       times: [
         '06:00',
@@ -97,7 +97,7 @@ export default {
     }
   },
   mounted() {
-    const availability = getAvailability()
+    const availabilities = getAvailabilities()
   },
   methods: {
     getTimeWithInterval(day, starttime, endtime) {
@@ -129,8 +129,8 @@ export default {
     async getSavedTimes() {
       this.savedTimes = []
       for (const day of this.days) {
-        const time1 = this.getTimeWithInterval(day.text, day.start_time1, day.end_time1)
-        const time2 = this.getTimeWithInterval(day.text, day.start_time2, day.end_time2)
+        const time1 = !day.disable ? this.getTimeWithInterval(day.text, day.start_time1, day.end_time1) : []
+        const time2 = !day.disable ? this.getTimeWithInterval(day.text, day.start_time2, day.end_time2) : []
         this.savedTimes.push(...time1.concat(time2))
       }
 
