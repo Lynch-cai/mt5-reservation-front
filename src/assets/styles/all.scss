@@ -1,19 +1,19 @@
-@import 'bases/colors';
-@import 'bases/fonts';
-@import 'bases/shadows';
+@import 'bases/colors.scss';
+@import 'bases/fonts.scss';
+@import 'bases/shadows.scss';
 
-@import 'components/button';
-@import 'components/label';
-@import 'components/input';
-@import 'components/select';
-@import 'components/box';
-@import 'components/window';
+@import 'components/button.scss';
+@import 'components/label.scss';
+@import 'components/input.scss';
+@import 'components/select.scss';
+@import 'components/box.scss';
+@import 'components/window.scss';
 
-@import 'views/homeView';
-@import 'views/createView';
-@import 'views/joinView';
-@import 'views/reservationsView';
-@import 'views/finishView';
+@import 'views/homeView.scss';
+@import 'views/createView.scss';
+@import 'views/joinView.scss';
+@import 'views/reservationsView.scss';
+@import 'views/finishView.scss';
 
 nav {
   display: flex;
